@@ -1,0 +1,362 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:radial-gradient(circle at center,#15002f,#050510,#000);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+/* UNIVERSO */
+
+#universo{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* ESTRELLAS */
+
+#estrellas{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(#8fd3ff 1px, transparent 1px),
+    radial-gradient(#ffd6ff 1px, transparent 1px);
+
+    background-size:
+    60px 60px,
+    120px 120px,
+    180px 180px;
+
+    animation: moverEstrellas 80s linear infinite;
+}
+
+@keyframes moverEstrellas{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(1000px);
+}
+
+}
+
+/* NEBULOSA */
+
+#nebulosa{
+
+position:absolute;
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle,#6b2cff55 0%,transparent 55%),
+radial-gradient(circle,#ff33aa33 0%,transparent 45%),
+radial-gradient(circle,#00ccff22 0%,transparent 50%);
+
+filter:blur(70px);
+
+animation: nebulosa 18s ease-in-out infinite alternate;
+
+}
+
+@keyframes nebulosa{
+
+0%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(1.2) rotate(10deg);
+}
+
+}
+
+/* CORAZÓN */
+
+#sol{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+font-size:80px;
+
+animation: latido 1.5s infinite;
+
+cursor:pointer;
+
+filter:drop-shadow(0 0 25px #ff3ea5);
+
+z-index:20;
+
+}
+
+@keyframes latido{
+
+0%{
+transform:translate(-50%,-50%) scale(1);
+}
+
+50%{
+transform:translate(-50%,-50%) scale(1.15);
+}
+
+100%{
+transform:translate(-50%,-50%) scale(1);
+}
+
+}
+
+/* ÓRBITAS */
+
+.orbita{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform-origin:center;
+
+animation: girar linear infinite;
+
+}
+
+/* MENSAJES */
+
+.mensaje{
+
+position:absolute;
+
+padding:10px 18px;
+
+background:rgba(255,255,255,.12);
+
+border:1px solid rgba(255,255,255,.35);
+
+backdrop-filter:blur(8px);
+
+border-radius:25px;
+
+color:white;
+
+font-weight:bold;
+
+white-space:nowrap;
+
+box-shadow:0 0 15px rgba(255,255,255,.4);
+
+transition:.4s;
+
+cursor:pointer;
+
+}
+
+.mensaje:hover{
+
+transform:scale(1.25);
+
+background:#ff4da6;
+
+box-shadow:0 0 35px #ff4da6;
+
+}
+
+/* TAMAÑOS DE ÓRBITA */
+
+.orbita1{
+
+width:220px;
+height:220px;
+
+margin-left:-110px;
+margin-top:-110px;
+
+animation-duration:8s;
+
+}
+
+.orbita2{
+
+width:320px;
+height:320px;
+
+margin-left:-160px;
+margin-top:-160px;
+
+animation-duration:11s;
+
+}
+
+.orbita3{
+
+width:430px;
+height:430px;
+
+margin-left:-215px;
+margin-top:-215px;
+
+animation-duration:15s;
+
+}
+
+.orbita4{
+
+width:540px;
+height:540px;
+
+margin-left:-270px;
+margin-top:-270px;
+
+animation-duration:19s;
+
+}
+
+.orbita5{
+
+width:650px;
+height:650px;
+
+margin-left:-325px;
+margin-top:-325px;
+
+animation-duration:24s;
+
+}
+
+.orbita6{
+
+width:760px;
+height:760px;
+
+margin-left:-380px;
+margin-top:-380px;
+
+animation-duration:29s;
+
+}
+
+.orbita7{
+
+width:870px;
+height:870px;
+
+margin-left:-435px;
+margin-top:-435px;
+
+animation-duration:34s;
+
+}
+
+.orbita8{
+
+width:980px;
+height:980px;
+
+margin-left:-490px;
+margin-top:-490px;
+
+animation-duration:40s;
+
+}
+
+/* POSICIÓN DEL MENSAJE */
+
+.orbita .mensaje{
+
+top:-18px;
+left:50%;
+
+transform:translateX(-50%);
+
+}
+
+/* ANIMACIÓN */
+
+@keyframes girar{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* TÍTULO */
+
+#titulo{
+    position:absolute;
+    top:40px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:45px;
+    font-weight:bold;
+    text-shadow:0 0 20px hotpink;
+    animation: brillo 2s infinite alternate;
+    z-index:100;
+}
+
+@keyframes brillo{
+
+from{
+text-shadow:0 0 15px hotpink;
+}
+
+to{
+text-shadow:0 0 40px cyan;
+}
+
+}
+
+/* MENSAJE FINAL */
+
+#mensajeFinal{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:80%;
+
+text-align:center;
+
+color:white;
+
+font-size:40px;
+
+font-weight:bold;
+
+opacity:0;
+
+transition:2s;
+
+text-shadow:0 0 30px deeppink;
+
+z-index:300;
+
+}
